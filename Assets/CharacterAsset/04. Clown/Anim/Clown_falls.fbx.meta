@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: 4f0ef29ce18e79e46af538a3afa25c06
+timeCreated: 1482610695
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm_3
+    100002: arm_3 1
+    100004: arm_L_1
+    100006: arm_L_2
+    100008: arm_R_1
+    100010: arm_R_2
+    100012: body
+    100014: bones
+    100016: chest
+    100018: Clown
+    100020: //RootNode
+    100022: eye_L
+    100024: eye_R
+    100026: fartuk
+    100028: fingers_L_1
+    100030: fingers_L_2
+    100032: fingers_L_3
+    100034: fingers_L_4
+    100036: fingers_L_5
+    100038: fingers_L_6
+    100040: fingers_L_7
+    100042: fingers_L_8
+    100044: fingers_L_9
+    100046: fingers_R_1
+    100048: fingers_R_2
+    100050: fingers_R_3
+    100052: fingers_R_4
+    100054: fingers_R_5
+    100056: fingers_R_6
+    100058: fingers_R_7
+    100060: fingers_R_8
+    100062: fingers_R_9
+    100064: foot_L
+    100066: foot_R
+    100068: hair_L_1
+    100070: hair_L_2
+    100072: hair_L_3
+    100074: hair_R_1
+    100076: hair_R_2
+    100078: hair_R_3
+    100080: hand_L
+    100082: hand_R
+    100084: head
+    100086: joint7
+    100088: leg_L_1
+    100090: leg_L_2
+    100092: leg_R_1
+    100094: leg_R_2
+    100096: molot_
+    100098: molot_1
+    100100: romashka
+    100102: toe_L
+    100104: toe_R
+    400000: arm_3
+    400002: arm_3 1
+    400004: arm_L_1
+    400006: arm_L_2
+    400008: arm_R_1
+    400010: arm_R_2
+    400012: body
+    400014: bones
+    400016: chest
+    400018: Clown
+    400020: //RootNode
+    400022: eye_L
+    400024: eye_R
+    400026: fartuk
+    400028: fingers_L_1
+    400030: fingers_L_2
+    400032: fingers_L_3
+    400034: fingers_L_4
+    400036: fingers_L_5
+    400038: fingers_L_6
+    400040: fingers_L_7
+    400042: fingers_L_8
+    400044: fingers_L_9
+    400046: fingers_R_1
+    400048: fingers_R_2
+    400050: fingers_R_3
+    400052: fingers_R_4
+    400054: fingers_R_5
+    400056: fingers_R_6
+    400058: fingers_R_7
+    400060: fingers_R_8
+    400062: fingers_R_9
+    400064: foot_L
+    400066: foot_R
+    400068: hair_L_1
+    400070: hair_L_2
+    400072: hair_L_3
+    400074: hair_R_1
+    400076: hair_R_2
+    400078: hair_R_3
+    400080: hand_L
+    400082: hand_R
+    400084: head
+    400086: joint7
+    400088: leg_L_1
+    400090: leg_L_2
+    400092: leg_R_1
+    400094: leg_R_2
+    400096: molot_
+    400098: molot_1
+    400100: romashka
+    400102: toe_L
+    400104: toe_R
+    4300000: Clown
+    7400000: falls
+    9500000: //RootNode
+    13700000: Clown
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: falls
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bones
+        weight: 1
+      - path: bones/body
+        weight: 1
+      - path: bones/body/chest
+        weight: 1
+      - path: bones/body/chest/arm_L_1
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L/fingers_L_1
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L/fingers_L_1/fingers_L_2
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L/fingers_L_3
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L/fingers_L_3/fingers_L_4
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L/fingers_L_5
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L/fingers_L_5/fingers_L_6
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L/fingers_L_7
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L/fingers_L_7/fingers_L_8
+        weight: 1
+      - path: bones/body/chest/arm_L_1/arm_L_2/arm_3/hand_L/fingers_L_9
+        weight: 1
+      - path: bones/body/chest/arm_R_1
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R/fingers_R_1
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R/fingers_R_1/fingers_R_2
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R/fingers_R_3
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R/fingers_R_3/fingers_R_4
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R/fingers_R_5
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R/fingers_R_5/fingers_R_6
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R/fingers_R_7
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R/fingers_R_7/fingers_R_8
+        weight: 1
+      - path: bones/body/chest/arm_R_1/arm_R_2/arm_3 1/hand_R/fingers_R_9
+        weight: 1
+      - path: bones/body/chest/joint7
+        weight: 1
+      - path: bones/body/chest/joint7/fartuk
+        weight: 1
+      - path: bones/body/chest/joint7/head
+        weight: 1
+      - path: bones/body/chest/joint7/head/eye_L
+        weight: 1
+      - path: bones/body/chest/joint7/head/eye_R
+        weight: 1
+      - path: bones/body/chest/joint7/head/hair_L_1
+        weight: 1
+      - path: bones/body/chest/joint7/head/hair_L_1/hair_L_2
+        weight: 1
+      - path: bones/body/chest/joint7/head/hair_L_1/hair_L_2/hair_L_3
+        weight: 1
+      - path: bones/body/chest/joint7/head/hair_R_1
+        weight: 1
+      - path: bones/body/chest/joint7/head/hair_R_1/hair_R_2
+        weight: 1
+      - path: bones/body/chest/joint7/head/hair_R_1/hair_R_2/hair_R_3
+        weight: 1
+      - path: bones/body/chest/romashka
+        weight: 1
+      - path: bones/body/leg_L_1
+        weight: 1
+      - path: bones/body/leg_L_1/leg_L_2
+        weight: 1
+      - path: bones/body/leg_L_1/leg_L_2/foot_L
+        weight: 1
+      - path: bones/body/leg_L_1/leg_L_2/foot_L/toe_L
+        weight: 1
+      - path: bones/body/leg_R_1
+        weight: 1
+      - path: bones/body/leg_R_1/leg_R_2
+        weight: 1
+      - path: bones/body/leg_R_1/leg_R_2/foot_R
+        weight: 1
+      - path: bones/body/leg_R_1/leg_R_2/foot_R/toe_R
+        weight: 1
+      - path: bones/molot_
+        weight: 1
+      - path: bones/molot_/molot_1
+        weight: 1
+      - path: Clown
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

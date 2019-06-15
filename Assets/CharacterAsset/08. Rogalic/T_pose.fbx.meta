@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 6aa72c5c9744b9e40b2a335d01fef262
+timeCreated: 1463488803
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: arm_L_1
+    100002: arm_L_2
+    100004: arm_R_1
+    100006: arm_R_2
+    100008: body
+    100010: chest
+    100012: cloth_1
+    100014: cloth_2
+    100016: cloth_2 1
+    100018: cloth_2 2
+    100020: cloth_3
+    100022: cloth_6
+    100024: ear_L_1
+    100026: ear_L_2
+    100028: ear_L_3
+    100030: ear_R_1
+    100032: ear_R_2
+    100034: ear_R_3
+    100036: eye_L
+    100038: eye_R
+    100040: finger_L_b
+    100042: finger_R_b
+    100044: fingers_L_1
+    100046: fingers_L_2
+    100048: fingers_L_5
+    100050: fingers_L_6
+    100052: fingers_R_1
+    100054: fingers_R_2
+    100056: fingers_R_5
+    100058: fingers_R_6
+    100060: hand_L
+    100062: hand_Lctrl
+    100064: hand_R
+    100066: hand_Rctrl
+    100068: head
+    100070: leg_L_1
+    100072: leg_L_2
+    100074: leg_L_3
+    100076: leg_R_1
+    100078: leg_R_2
+    100080: leg_R_3
+    100082: polySurface5
+    100084: root
+    100086: shoulder1
+    100088: shoulder2
+    100090: shtuka
+    100092: //RootNode
+    100094: tail_1
+    100096: tail_2
+    100098: tail_3
+    400000: arm_L_1
+    400002: arm_L_2
+    400004: arm_R_1
+    400006: arm_R_2
+    400008: body
+    400010: chest
+    400012: cloth_1
+    400014: cloth_2
+    400016: cloth_2 1
+    400018: cloth_2 2
+    400020: cloth_3
+    400022: cloth_6
+    400024: ear_L_1
+    400026: ear_L_2
+    400028: ear_L_3
+    400030: ear_R_1
+    400032: ear_R_2
+    400034: ear_R_3
+    400036: eye_L
+    400038: eye_R
+    400040: finger_L_b
+    400042: finger_R_b
+    400044: fingers_L_1
+    400046: fingers_L_2
+    400048: fingers_L_5
+    400050: fingers_L_6
+    400052: fingers_R_1
+    400054: fingers_R_2
+    400056: fingers_R_5
+    400058: fingers_R_6
+    400060: hand_L
+    400062: hand_Lctrl
+    400064: hand_R
+    400066: hand_Rctrl
+    400068: head
+    400070: leg_L_1
+    400072: leg_L_2
+    400074: leg_L_3
+    400076: leg_R_1
+    400078: leg_R_2
+    400080: leg_R_3
+    400082: polySurface5
+    400084: root
+    400086: shoulder1
+    400088: shoulder2
+    400090: shtuka
+    400092: //RootNode
+    400094: tail_1
+    400096: tail_2
+    400098: tail_3
+    4300000: polySurface5
+    9500000: //RootNode
+    13700000: polySurface5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
