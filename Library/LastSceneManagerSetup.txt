@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Minion_Asset/SampleScene.unity
+  isLoaded: 1
+  isActive: 1

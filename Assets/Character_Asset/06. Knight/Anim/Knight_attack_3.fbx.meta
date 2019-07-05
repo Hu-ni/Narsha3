@@ -1,194 +1,74 @@
 fileFormatVersion: 2
-guid: de04cd665271b574fa3d85bc7dd522cf
+guid: 0ff50065caa6d9f4f963af8609c2f73d
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: arm_L_1
-  - first:
-      1: 100002
-    second: arm_L_2
-  - first:
-      1: 100004
-    second: arm_L_3
-  - first:
-      1: 100006
-    second: arm_R_1
-  - first:
-      1: 100008
-    second: arm_R_2
-  - first:
-      1: 100010
-    second: arm_R_3
-  - first:
-      1: 100012
-    second: body
-  - first:
-      1: 100014
-    second: bones
-  - first:
-      1: 100016
-    second: chest
-  - first:
-      1: 100018
-    second: head
-  - first:
-      1: 100020
-    second: head_up
-  - first:
-      1: 100022
-    second: horse
-  - first:
-      1: 100024
-    second: horse_head
-  - first:
-      1: 100026
-    second: horse_leg_L_back
-  - first:
-      1: 100028
-    second: horse_leg_L_front
-  - first:
-      1: 100030
-    second: horse_leg_R_back
-  - first:
-      1: 100032
-    second: horse_leg_R_front
-  - first:
-      1: 100034
-    second: horse_neck
-  - first:
-      1: 100036
-    second: horse_tail
-  - first:
-      1: 100038
-    second: joint1
-  - first:
-      1: 100040
-    second: Knight
-  - first:
-      1: 100042
-    second: //RootNode
-  - first:
-      1: 100044
-    second: leg_L_1
-  - first:
-      1: 100046
-    second: leg_L_2
-  - first:
-      1: 100048
-    second: leg_L_3
-  - first:
-      1: 100050
-    second: leg_R_1
-  - first:
-      1: 100052
-    second: leg_R_2
-  - first:
-      1: 100054
-    second: leg_R_3
-  - first:
-      4: 400000
-    second: arm_L_1
-  - first:
-      4: 400002
-    second: arm_L_2
-  - first:
-      4: 400004
-    second: arm_L_3
-  - first:
-      4: 400006
-    second: arm_R_1
-  - first:
-      4: 400008
-    second: arm_R_2
-  - first:
-      4: 400010
-    second: arm_R_3
-  - first:
-      4: 400012
-    second: body
-  - first:
-      4: 400014
-    second: bones
-  - first:
-      4: 400016
-    second: chest
-  - first:
-      4: 400018
-    second: head
-  - first:
-      4: 400020
-    second: head_up
-  - first:
-      4: 400022
-    second: horse
-  - first:
-      4: 400024
-    second: horse_head
-  - first:
-      4: 400026
-    second: horse_leg_L_back
-  - first:
-      4: 400028
-    second: horse_leg_L_front
-  - first:
-      4: 400030
-    second: horse_leg_R_back
-  - first:
-      4: 400032
-    second: horse_leg_R_front
-  - first:
-      4: 400034
-    second: horse_neck
-  - first:
-      4: 400036
-    second: horse_tail
-  - first:
-      4: 400038
-    second: joint1
-  - first:
-      4: 400040
-    second: Knight
-  - first:
-      4: 400042
-    second: //RootNode
-  - first:
-      4: 400044
-    second: leg_L_1
-  - first:
-      4: 400046
-    second: leg_L_2
-  - first:
-      4: 400048
-    second: leg_L_3
-  - first:
-      4: 400050
-    second: leg_R_1
-  - first:
-      4: 400052
-    second: leg_R_2
-  - first:
-      4: 400054
-    second: leg_R_3
-  - first:
-      43: 4300000
-    second: Knight
-  - first:
-      74: 7400000
-    second: attack_3
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: Knight
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: arm_L_1
+    100002: arm_L_2
+    100004: arm_L_3
+    100006: arm_R_1
+    100008: arm_R_2
+    100010: arm_R_3
+    100012: body
+    100014: bones
+    100016: chest
+    100018: head
+    100020: head_up
+    100022: horse
+    100024: horse_head
+    100026: horse_leg_L_back
+    100028: horse_leg_L_front
+    100030: horse_leg_R_back
+    100032: horse_leg_R_front
+    100034: horse_neck
+    100036: horse_tail
+    100038: joint1
+    100040: Knight
+    100042: //RootNode
+    100044: leg_L_1
+    100046: leg_L_2
+    100048: leg_L_3
+    100050: leg_R_1
+    100052: leg_R_2
+    100054: leg_R_3
+    400000: arm_L_1
+    400002: arm_L_2
+    400004: arm_L_3
+    400006: arm_R_1
+    400008: arm_R_2
+    400010: arm_R_3
+    400012: body
+    400014: bones
+    400016: chest
+    400018: head
+    400020: head_up
+    400022: horse
+    400024: horse_head
+    400026: horse_leg_L_back
+    400028: horse_leg_L_front
+    400030: horse_leg_R_back
+    400032: horse_leg_R_front
+    400034: horse_neck
+    400036: horse_tail
+    400038: joint1
+    400040: Knight
+    400042: //RootNode
+    400044: leg_L_1
+    400046: leg_L_2
+    400048: leg_L_3
+    400050: leg_R_1
+    400052: leg_R_2
+    400054: leg_R_3
+    4300000: Knight
+    7400000: attack_3
+    9500000: //RootNode
+    13700000: Knight
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: 97b92da9710ef4d589db14c7f516b96f, type: 2}
+    second: {fileID: 2100000, guid: 3ebdbcd3d2b057148914efcc653e16c0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -219,7 +99,6 @@ ModelImporter:
     - serializedVersion: 16
       name: attack_3
       takeName: Take 001
-      internalID: 7400000
       firstFrame: 1
       lastFrame: 31
       wrapMode: 0
@@ -315,19 +194,18 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -336,11 +214,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -350,7 +227,6 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
