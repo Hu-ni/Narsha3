@@ -9,7 +9,7 @@ public class Golem : Character
     private UnityEngine.AI.NavMeshAgent agent;
 
     //리스폰 시간
-    private float respawnTime = 3;
+    public float respawnTime = 3;
 
     //애니메이터
     private Animator animator;
@@ -524,6 +524,7 @@ public class Golem : Character
     public float SPEED()
     {
         currentStatus.speed = status.speed + (Extra_MoveSpeed * this.status.speed * 0.05f);
+        agent.speed = currentStatus.speed;
         return currentStatus.speed;
     }
     #endregion

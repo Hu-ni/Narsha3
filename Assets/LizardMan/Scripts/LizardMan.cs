@@ -9,7 +9,7 @@ public class LizardMan : Character
     private UnityEngine.AI.NavMeshAgent agent;
 
     //리스폰 시간
-    private float respawnTime = 3;
+    public float respawnTime = 3;
 
     //애니메이터
     private Animator animator;
@@ -19,8 +19,10 @@ public class LizardMan : Character
 
     [Header("Skill Time")]
     //스킬 쿨타임
-    public float Q_Time = 0, W_Time = 0, E_Time = 0;
-    
+    public float Q_Time = 0;
+    public float W_Time = 0;
+    public float E_Time = 0;
+
     [Header("- Status")]
     //상태 변수들
     public bool dead = false;
@@ -476,6 +478,7 @@ public class LizardMan : Character
     public float SPEED()
     {
         currentStatus.speed = status.speed + (Extra_MoveSpeed * this.status.speed * 0.05f);
+        agent.speed = currentStatus.speed;
         return currentStatus.speed;
     }
     #endregion
