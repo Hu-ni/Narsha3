@@ -190,7 +190,7 @@ public class LizardMan : Character
     #region 스킬 히트 박스 활성화, 비활성화
     public void Skill_Q_HitBox_Enable()
     {
-        skillDamage = 65 + (15 * (this.currentStatus.power / 100.0f));
+        skillDamage = 65 + (15 * (this.currentStatus.power / 100.0f * GetSkillCoefficient()));
         transform.Find("Skill_Q_HitBox").gameObject.SetActive(true);
     }
 
@@ -202,7 +202,7 @@ public class LizardMan : Character
 
     public void Skill_W_HitBox_Enable()
     {
-        skillDamage = 70 + (15 * (this.currentStatus.power / 100.0f));
+        skillDamage = 70 + (15 * (this.currentStatus.power / 100.0f * GetSkillCoefficient()));
         transform.Find("Skill_W_HitBox").gameObject.SetActive(true);
     }
 
