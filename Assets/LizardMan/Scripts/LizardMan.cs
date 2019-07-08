@@ -137,7 +137,6 @@ public class LizardMan : Character
                 //미니언 데미지 주기
             }
         }
-
     }
 
     #endregion
@@ -285,7 +284,7 @@ public class LizardMan : Character
     public void Stun(float StunTime)
     {
         animator.SetFloat("StunTime", StunTime);
-        StartCoroutine("Stun");
+        StartCoroutine("crtStun");
     }
 
     IEnumerator crtStun()
