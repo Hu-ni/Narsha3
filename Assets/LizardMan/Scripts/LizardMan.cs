@@ -36,14 +36,20 @@ public class LizardMan : Character
 
     [Header("Extra_Stat")]
     //포인트에 따른 추가 스탯
-    public float Extra_HP = 0;
-    public float Extra_Resource = 0;
-    public float Extra_Attack = 0;
-    public float Extra_MoveSpeed = 0;
-    public float Extra_AttackSpeed = 0;
+    public int Extra_HP = 0;
+    public int Extra_Resource = 0;
+    public int Extra_Attack = 0;
+    public int Extra_MoveSpeed = 0;
+    public int Extra_AttackSpeed = 0;
     
     //경험치 필요량
     private int exp_need;
+
+    ~LizardMan()
+    {
+        StopCoroutine("ChargeHP");
+        StopCoroutine("ChargeMP");
+    }
 
     private void Awake()
     {
@@ -63,11 +69,8 @@ public class LizardMan : Character
     private void Start()
     {
         playerController = gameObject.GetComponent<PlayerController>();
-    }
-
-    private void Update()
-    {
-
+        StartCoroutine("ChargeHP");
+        StartCoroutine("ChargeMP");
     }
 
     #region 초기화
@@ -102,6 +105,7 @@ public class LizardMan : Character
         {
             return;
         }
+        playerController.SetMoveable(0);
         StartCoroutine("crtAttack");
     }
 
@@ -117,7 +121,9 @@ public class LizardMan : Character
 
         //공격 애니메이션 길이만큼 기다리기
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length / animator.GetFloat("AttackSpeed"));
+        playerController.SetMoveable(1);
         animator.SetBool("Attack", false);
+
         attack = false;
         yield return null;
     }
@@ -173,6 +179,7 @@ public class LizardMan : Character
             return;
 
         evasion = true;
+        Debug.Log("True");
         playerController.SetMoveable(0);
         transform.LookAt(agent.pathEndPosition);
 
@@ -183,9 +190,7 @@ public class LizardMan : Character
     #region 스킬 히트 박스 활성화, 비활성화
     public void Skill_Q_HitBox_Enable()
     {
-        float Attack = currentStatus.power;
-        skillDamage = 65 + (Attack * ((15 * Attack) / 100.0f));
-        Debug.Log(skillDamage);
+        skillDamage = 65 + (15 * (this.currentStatus.power / 100.0f));
         transform.Find("Skill_Q_HitBox").gameObject.SetActive(true);
     }
 
@@ -197,8 +202,7 @@ public class LizardMan : Character
 
     public void Skill_W_HitBox_Enable()
     {
-        float Attack = currentStatus.power;
-        skillDamage = 70 + (Attack * ((15 * Attack) / 100.0f));
+        skillDamage = 70 + (15 * (this.currentStatus.power / 100.0f));
         transform.Find("Skill_W_HitBox").gameObject.SetActive(true);
     }
 
@@ -258,8 +262,14 @@ public class LizardMan : Character
         E_Time = 7;
         while (E_Time > 0)
         {
-            if (E_Time >= 0.5f)
+            if (7 - E_Time >= 0.5f)
+            {
                 evasion = false;
+            }
+            if(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("jump") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+            {
+                playerController.SetMoveable(1);
+            }
             E_Time -= Time.deltaTime;
             yield return new WaitForSecondsRealtime(Time.deltaTime);
         }
@@ -279,6 +289,22 @@ public class LizardMan : Character
         Debug.Log("DeadCnt : " + Dead_Count);
 
         StartCoroutine("Respawn");
+    }
+
+    public void Slow(float SlowTime, float SlowValue)
+    {
+        StartCoroutine(crtSlow(SlowTime, SlowValue));
+    }
+
+    IEnumerator crtSlow(float SlowTime, float SlowValue)
+    {
+        agent.speed *= (1 - (0.01f * SlowValue));
+        while (SlowTime <= 0)
+        {
+            SlowTime -= Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        agent.speed = SPEED();
     }
 
     public void Stun(float StunTime)
@@ -318,6 +344,7 @@ public class LizardMan : Character
             return;
         }
         Extra_HP++;
+        Stat_Point--;
         this.status.hp *= 1.1f;
     }
 
@@ -328,6 +355,8 @@ public class LizardMan : Character
             return;
         }
         Extra_Resource++;
+        Stat_Point--;
+        this.currentStatus.power = POWER();
     }
     private void AddExtraAttack()
     {
@@ -336,6 +365,13 @@ public class LizardMan : Character
             return;
         }
         Extra_Attack++;
+        Stat_Point--;
+        this.currentStatus.power = POWER();
+    }
+    //스킬 계수를 위한 함수
+    private int GetSkillCoefficient()
+    {
+        return Extra_Attack == 0 ? 1 : (1 + Extra_Attack);
     }
     private void AddExtraMoveSpeed()
     {
@@ -344,6 +380,8 @@ public class LizardMan : Character
             return;
         }
         Extra_MoveSpeed++;
+        Stat_Point--;
+        animator.SetFloat("Speed", SPEED());
     }
     private void AddExtraAttackSpeed()
     {
@@ -352,10 +390,44 @@ public class LizardMan : Character
             return;
         }
         Extra_AttackSpeed++;
+        Stat_Point--;
+        animator.SetFloat("AttackSpeed", ATTACKSPEED());
     }
     #endregion
 
     #region 스탯 관련
+    //체력 및 마나 재생
+    IEnumerator ChargeHP()
+    {
+        while (true)
+        {
+            if (!dead && !Mathf.Approximately(this.currentStatus.hp, this.status.hp))
+            {
+                this.currentStatus.hp += (4 * Extra_HP);
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+    }
+
+    IEnumerator ChargeMP()
+    {
+        while (true)
+        {
+            if (!dead && !Mathf.Approximately(this.currentStatus.mp, this.status.mp))
+            {
+                this.currentStatus.mp += (4 * Extra_Resource);
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+    }
     //경험치 설정
     public float EXP()
     {

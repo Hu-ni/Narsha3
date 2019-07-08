@@ -1,102 +1,299 @@
 fileFormatVersion: 2
-guid: a71dcf21a528d2f4cad3eb6496b79016
+guid: e9a982eca3f431a44987fcce76b9c0c5
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: arm_L_1
-    100002: arm_L_2
-    100004: arm_R_1
-    100006: arm_R_2
-    100008: body
-    100010: chest
-    100012: cloth_front_1
-    100014: cloth_front_2
-    100016: cloth_L_1
-    100018: cloth_L_2
-    100020: cloth_R_1
-    100022: cloth_R_2
-    100024: //RootNode
-    100026: fingers_L_10
-    100028: fingers_L_11
-    100030: fingers_L_12
-    100032: fingers_L_13
-    100034: fingers_L_14
-    100036: fingers_L_8
-    100038: fingers_L_9
-    100040: fingers_R_10
-    100042: fingers_R_11
-    100044: fingers_R_12
-    100046: fingers_R_13
-    100048: fingers_R_14
-    100050: fingers_R_8
-    100052: fingers_R_9
-    100054: hand_L
-    100056: hand_L_ctrl
-    100058: hand_R
-    100060: hand_R_ctrl
-    100062: head
-    100064: leg_L_1
-    100066: leg_L_2
-    100068: leg_L_3
-    100070: leg_R_1
-    100072: leg_R_2
-    100074: leg_R_3
-    100076: naplechnik
-    100078: new_model
-    100080: palka
-    100082: root
-    100084: shoulder_L
-    100086: shoulder_R
-    100088: tail
-    400000: arm_L_1
-    400002: arm_L_2
-    400004: arm_R_1
-    400006: arm_R_2
-    400008: body
-    400010: chest
-    400012: cloth_front_1
-    400014: cloth_front_2
-    400016: cloth_L_1
-    400018: cloth_L_2
-    400020: cloth_R_1
-    400022: cloth_R_2
-    400024: //RootNode
-    400026: fingers_L_10
-    400028: fingers_L_11
-    400030: fingers_L_12
-    400032: fingers_L_13
-    400034: fingers_L_14
-    400036: fingers_L_8
-    400038: fingers_L_9
-    400040: fingers_R_10
-    400042: fingers_R_11
-    400044: fingers_R_12
-    400046: fingers_R_13
-    400048: fingers_R_14
-    400050: fingers_R_8
-    400052: fingers_R_9
-    400054: hand_L
-    400056: hand_L_ctrl
-    400058: hand_R
-    400060: hand_R_ctrl
-    400062: head
-    400064: leg_L_1
-    400066: leg_L_2
-    400068: leg_L_3
-    400070: leg_R_1
-    400072: leg_R_2
-    400074: leg_R_3
-    400076: naplechnik
-    400078: new_model
-    400080: palka
-    400082: root
-    400084: shoulder_L
-    400086: shoulder_R
-    400088: tail
-    4300000: new_model
-    7400000: run
-    9500000: //RootNode
-    13700000: new_model
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: arm_L_1
+  - first:
+      1: 100002
+    second: arm_L_2
+  - first:
+      1: 100004
+    second: arm_R_1
+  - first:
+      1: 100006
+    second: arm_R_2
+  - first:
+      1: 100008
+    second: body
+  - first:
+      1: 100010
+    second: chest
+  - first:
+      1: 100012
+    second: cloth_front_1
+  - first:
+      1: 100014
+    second: cloth_front_2
+  - first:
+      1: 100016
+    second: cloth_L_1
+  - first:
+      1: 100018
+    second: cloth_L_2
+  - first:
+      1: 100020
+    second: cloth_R_1
+  - first:
+      1: 100022
+    second: cloth_R_2
+  - first:
+      1: 100024
+    second: //RootNode
+  - first:
+      1: 100026
+    second: fingers_L_10
+  - first:
+      1: 100028
+    second: fingers_L_11
+  - first:
+      1: 100030
+    second: fingers_L_12
+  - first:
+      1: 100032
+    second: fingers_L_13
+  - first:
+      1: 100034
+    second: fingers_L_14
+  - first:
+      1: 100036
+    second: fingers_L_8
+  - first:
+      1: 100038
+    second: fingers_L_9
+  - first:
+      1: 100040
+    second: fingers_R_10
+  - first:
+      1: 100042
+    second: fingers_R_11
+  - first:
+      1: 100044
+    second: fingers_R_12
+  - first:
+      1: 100046
+    second: fingers_R_13
+  - first:
+      1: 100048
+    second: fingers_R_14
+  - first:
+      1: 100050
+    second: fingers_R_8
+  - first:
+      1: 100052
+    second: fingers_R_9
+  - first:
+      1: 100054
+    second: hand_L
+  - first:
+      1: 100056
+    second: hand_L_ctrl
+  - first:
+      1: 100058
+    second: hand_R
+  - first:
+      1: 100060
+    second: hand_R_ctrl
+  - first:
+      1: 100062
+    second: head
+  - first:
+      1: 100064
+    second: leg_L_1
+  - first:
+      1: 100066
+    second: leg_L_2
+  - first:
+      1: 100068
+    second: leg_L_3
+  - first:
+      1: 100070
+    second: leg_R_1
+  - first:
+      1: 100072
+    second: leg_R_2
+  - first:
+      1: 100074
+    second: leg_R_3
+  - first:
+      1: 100076
+    second: naplechnik
+  - first:
+      1: 100078
+    second: new_model
+  - first:
+      1: 100080
+    second: palka
+  - first:
+      1: 100082
+    second: root
+  - first:
+      1: 100084
+    second: shoulder_L
+  - first:
+      1: 100086
+    second: shoulder_R
+  - first:
+      1: 100088
+    second: tail
+  - first:
+      4: 400000
+    second: arm_L_1
+  - first:
+      4: 400002
+    second: arm_L_2
+  - first:
+      4: 400004
+    second: arm_R_1
+  - first:
+      4: 400006
+    second: arm_R_2
+  - first:
+      4: 400008
+    second: body
+  - first:
+      4: 400010
+    second: chest
+  - first:
+      4: 400012
+    second: cloth_front_1
+  - first:
+      4: 400014
+    second: cloth_front_2
+  - first:
+      4: 400016
+    second: cloth_L_1
+  - first:
+      4: 400018
+    second: cloth_L_2
+  - first:
+      4: 400020
+    second: cloth_R_1
+  - first:
+      4: 400022
+    second: cloth_R_2
+  - first:
+      4: 400024
+    second: //RootNode
+  - first:
+      4: 400026
+    second: fingers_L_10
+  - first:
+      4: 400028
+    second: fingers_L_11
+  - first:
+      4: 400030
+    second: fingers_L_12
+  - first:
+      4: 400032
+    second: fingers_L_13
+  - first:
+      4: 400034
+    second: fingers_L_14
+  - first:
+      4: 400036
+    second: fingers_L_8
+  - first:
+      4: 400038
+    second: fingers_L_9
+  - first:
+      4: 400040
+    second: fingers_R_10
+  - first:
+      4: 400042
+    second: fingers_R_11
+  - first:
+      4: 400044
+    second: fingers_R_12
+  - first:
+      4: 400046
+    second: fingers_R_13
+  - first:
+      4: 400048
+    second: fingers_R_14
+  - first:
+      4: 400050
+    second: fingers_R_8
+  - first:
+      4: 400052
+    second: fingers_R_9
+  - first:
+      4: 400054
+    second: hand_L
+  - first:
+      4: 400056
+    second: hand_L_ctrl
+  - first:
+      4: 400058
+    second: hand_R
+  - first:
+      4: 400060
+    second: hand_R_ctrl
+  - first:
+      4: 400062
+    second: head
+  - first:
+      4: 400064
+    second: leg_L_1
+  - first:
+      4: 400066
+    second: leg_L_2
+  - first:
+      4: 400068
+    second: leg_L_3
+  - first:
+      4: 400070
+    second: leg_R_1
+  - first:
+      4: 400072
+    second: leg_R_2
+  - first:
+      4: 400074
+    second: leg_R_3
+  - first:
+      4: 400076
+    second: naplechnik
+  - first:
+      4: 400078
+    second: new_model
+  - first:
+      4: 400080
+    second: palka
+  - first:
+      4: 400082
+    second: root
+  - first:
+      4: 400084
+    second: shoulder_L
+  - first:
+      4: 400086
+    second: shoulder_R
+  - first:
+      4: 400088
+    second: tail
+  - first:
+      43: 4300000
+    second: new_model
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: new_model
+  - first:
+      74: -3012361547672260724
+    second: run (1)
+  - first:
+      74: 7253292159873783953
+    second: run (2)
+  - first:
+      74: -1869801454362001869
+    second: run (3)
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -133,6 +330,7 @@ ModelImporter:
     - serializedVersion: 16
       name: run
       takeName: Take 001
+      internalID: 7400000
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -172,18 +370,19 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -192,10 +391,11 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -205,6 +405,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

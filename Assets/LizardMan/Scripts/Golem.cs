@@ -78,7 +78,6 @@ public class Golem : Character
     private void Start()
     {
         playerController = gameObject.GetComponent<PlayerController>();
-        this.currentStatus.hp = 100;
         StartCoroutine("ChargeHP");
         StartCoroutine("ChargeMP");
         StartCoroutine("PassiveReset");
@@ -132,7 +131,6 @@ public class Golem : Character
 
         //공격 애니메이션 길이만큼 기다리기
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length / animator.GetFloat("AttackSpeed"));
-        Debug.Log("False");
         playerController.SetMoveable(1);
         animator.SetBool("Attack", false);
 
@@ -515,7 +513,6 @@ public class Golem : Character
     public void UseMP(int MP)
     {
         this.currentStatus.mp -= MP;
-        Debug.Log("MP : " + this.currentStatus.mp);
     }
 
     public float ATTACKSPEED()
@@ -554,13 +551,9 @@ public class Golem : Character
     {
         if (evasion)
             return;
-
-        Debug.Log(damage);
-
+        
         float DefenseDamage = damage * (0.9f - (Passive_ExtraDefense * 0.05f));
-        Debug.Log(DefenseDamage);
         this.currentStatus.hp -= DefenseDamage;
-        Debug.Log(this.currentStatus.hp);
         if (this.currentStatus.hp <= 0)
         {
             Dead();
