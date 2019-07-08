@@ -1,233 +1,87 @@
 fileFormatVersion: 2
-guid: d6d87b214bdd8b74db4c6bbcea17002b
+guid: 7328875740450cd45ab6ea34e4e39a33
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: arm_1_L
-  - first:
-      1: 100002
-    second: arm_1_R
-  - first:
-      1: 100004
-    second: arm_2_L
-  - first:
-      1: 100006
-    second: arm_2_R
-  - first:
-      1: 100008
-    second: back
-  - first:
-      1: 100010
-    second: body
-  - first:
-      1: 100012
-    second: bones
-  - first:
-      1: 100014
-    second: cloth_back_1
-  - first:
-      1: 100016
-    second: cloth_back_2
-  - first:
-      1: 100018
-    second: cloth_back_3
-  - first:
-      1: 100020
-    second: cloth_back_4
-  - first:
-      1: 100022
-    second: cloth_back_5
-  - first:
-      1: 100024
-    second: cloth_front_1
-  - first:
-      1: 100026
-    second: cloth_front_2
-  - first:
-      1: 100028
-    second: cloth_front_3
-  - first:
-      1: 100030
-    second: cloth_front_4
-  - first:
-      1: 100032
-    second: cloth_front_5
-  - first:
-      1: 100034
-    second: foot_L
-  - first:
-      1: 100036
-    second: foot_R
-  - first:
-      1: 100038
-    second: //RootNode
-  - first:
-      1: 100040
-    second: Gladiator
-  - first:
-      1: 100042
-    second: hand_L
-  - first:
-      1: 100044
-    second: hand_R
-  - first:
-      1: 100046
-    second: head
-  - first:
-      1: 100048
-    second: joint1
-  - first:
-      1: 100050
-    second: leg_1_L
-  - first:
-      1: 100052
-    second: leg_1_R
-  - first:
-      1: 100054
-    second: leg_2_L
-  - first:
-      1: 100056
-    second: leg_2_R
-  - first:
-      1: 100058
-    second: naplechnik_L
-  - first:
-      1: 100060
-    second: naplechnik_R
-  - first:
-      1: 100062
-    second: shoulder_L
-  - first:
-      1: 100064
-    second: shoulder_R
-  - first:
-      1: 100066
-    second: toe_L
-  - first:
-      1: 100068
-    second: toe_R
-  - first:
-      4: 400000
-    second: arm_1_L
-  - first:
-      4: 400002
-    second: arm_1_R
-  - first:
-      4: 400004
-    second: arm_2_L
-  - first:
-      4: 400006
-    second: arm_2_R
-  - first:
-      4: 400008
-    second: back
-  - first:
-      4: 400010
-    second: body
-  - first:
-      4: 400012
-    second: bones
-  - first:
-      4: 400014
-    second: cloth_back_1
-  - first:
-      4: 400016
-    second: cloth_back_2
-  - first:
-      4: 400018
-    second: cloth_back_3
-  - first:
-      4: 400020
-    second: cloth_back_4
-  - first:
-      4: 400022
-    second: cloth_back_5
-  - first:
-      4: 400024
-    second: cloth_front_1
-  - first:
-      4: 400026
-    second: cloth_front_2
-  - first:
-      4: 400028
-    second: cloth_front_3
-  - first:
-      4: 400030
-    second: cloth_front_4
-  - first:
-      4: 400032
-    second: cloth_front_5
-  - first:
-      4: 400034
-    second: foot_L
-  - first:
-      4: 400036
-    second: foot_R
-  - first:
-      4: 400038
-    second: //RootNode
-  - first:
-      4: 400040
-    second: Gladiator
-  - first:
-      4: 400042
-    second: hand_L
-  - first:
-      4: 400044
-    second: hand_R
-  - first:
-      4: 400046
-    second: head
-  - first:
-      4: 400048
-    second: joint1
-  - first:
-      4: 400050
-    second: leg_1_L
-  - first:
-      4: 400052
-    second: leg_1_R
-  - first:
-      4: 400054
-    second: leg_2_L
-  - first:
-      4: 400056
-    second: leg_2_R
-  - first:
-      4: 400058
-    second: naplechnik_L
-  - first:
-      4: 400060
-    second: naplechnik_R
-  - first:
-      4: 400062
-    second: shoulder_L
-  - first:
-      4: 400064
-    second: shoulder_R
-  - first:
-      4: 400066
-    second: toe_L
-  - first:
-      4: 400068
-    second: toe_R
-  - first:
-      43: 4300000
-    second: Gladiator
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: Gladiator
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: arm_1_L
+    100002: arm_1_R
+    100004: arm_2_L
+    100006: arm_2_R
+    100008: back
+    100010: body
+    100012: bones
+    100014: cloth_back_1
+    100016: cloth_back_2
+    100018: cloth_back_3
+    100020: cloth_back_4
+    100022: cloth_back_5
+    100024: cloth_front_1
+    100026: cloth_front_2
+    100028: cloth_front_3
+    100030: cloth_front_4
+    100032: cloth_front_5
+    100034: foot_L
+    100036: foot_R
+    100038: //RootNode
+    100040: Gladiator
+    100042: hand_L
+    100044: hand_R
+    100046: head
+    100048: joint1
+    100050: leg_1_L
+    100052: leg_1_R
+    100054: leg_2_L
+    100056: leg_2_R
+    100058: naplechnik_L
+    100060: naplechnik_R
+    100062: shoulder_L
+    100064: shoulder_R
+    100066: toe_L
+    100068: toe_R
+    400000: arm_1_L
+    400002: arm_1_R
+    400004: arm_2_L
+    400006: arm_2_R
+    400008: back
+    400010: body
+    400012: bones
+    400014: cloth_back_1
+    400016: cloth_back_2
+    400018: cloth_back_3
+    400020: cloth_back_4
+    400022: cloth_back_5
+    400024: cloth_front_1
+    400026: cloth_front_2
+    400028: cloth_front_3
+    400030: cloth_front_4
+    400032: cloth_front_5
+    400034: foot_L
+    400036: foot_R
+    400038: //RootNode
+    400040: Gladiator
+    400042: hand_L
+    400044: hand_R
+    400046: head
+    400048: joint1
+    400050: leg_1_L
+    400052: leg_1_R
+    400054: leg_2_L
+    400056: leg_2_R
+    400058: naplechnik_L
+    400060: naplechnik_R
+    400062: shoulder_L
+    400064: shoulder_R
+    400066: toe_L
+    400068: toe_R
+    4300000: Gladiator
+    9500000: //RootNode
+    13700000: Gladiator
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-    second: {fileID: 2100000, guid: c690baeade25a4ade8059dd50cd52402, type: 2}
+    second: {fileID: 2100000, guid: c5cc9e1cefa4c2044b00380644023eec, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -269,19 +123,18 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.0139999995
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -290,11 +143,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -304,7 +156,6 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0139999995
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
