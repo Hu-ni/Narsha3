@@ -22,6 +22,9 @@ public class LizardMan : Character
     public float Q_Time = 0;
     public float W_Time = 0;
     public float E_Time = 0;
+    public GameObject SkillQ;
+    public GameObject SkillW;
+    public GameObject SkillE;
 
     [Header("- Status")]
     //상태 변수들
@@ -155,9 +158,13 @@ public class LizardMan : Character
         if (Q_Time > 0)
             return;
 
+        animator.SetBool("Walk", false);
+
         playerController.SetMoveable(0);
         transform.LookAt(agent.pathEndPosition);
 
+        SkillQ.SetActive(false);
+        SkillQ.SetActive(true);
         animator.SetBool("Skill_Q", true);
         Skill_Q_HitBox_Enable();
         StartCoroutine("UseQ");
@@ -168,10 +175,15 @@ public class LizardMan : Character
         if (W_Time > 0)
             return;
 
+        animator.SetBool("Walk", false);
+
         playerController.SetMoveable(0);
         transform.LookAt(agent.pathEndPosition);
 
+        SkillW.SetActive(false);
+        SkillW.SetActive(true);
         animator.SetTrigger("Skill_W");
+        animator.SetBool("Walk", false);
         StartCoroutine("UseW");
     }
 
@@ -179,12 +191,15 @@ public class LizardMan : Character
     {
         if (E_Time > 0)
             return;
+        
+        animator.SetBool("Walk", false);
 
         evasion = true;
-        Debug.Log("True");
         playerController.SetMoveable(0);
         transform.LookAt(agent.pathEndPosition);
 
+        SkillE.SetActive(false);
+        SkillE.SetActive(true);
         animator.SetTrigger("Skill_E");
         StartCoroutine("UseE");
     }
@@ -333,6 +348,7 @@ public class LizardMan : Character
         yield return new WaitForSeconds(respawnTime);
         animator.SetBool("Dead", false);
         dead = false;
+        this.currentStatus = this.status;
         transform.position = new Vector3(0, 0, 0);
         transform.Find("char_model").gameObject.SetActive(true);
     }
@@ -384,6 +400,7 @@ public class LizardMan : Character
         Extra_MoveSpeed++;
         Stat_Point--;
         animator.SetFloat("Speed", SPEED());
+        agent.speed = SPEED();
     }
     private void AddExtraAttackSpeed()
     {
@@ -478,7 +495,6 @@ public class LizardMan : Character
     public float SPEED()
     {
         currentStatus.speed = status.speed + (Extra_MoveSpeed * this.status.speed * 0.05f);
-        agent.speed = currentStatus.speed;
         return currentStatus.speed;
     }
     #endregion

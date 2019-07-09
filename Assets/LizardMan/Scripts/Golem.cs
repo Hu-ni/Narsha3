@@ -22,7 +22,13 @@ public class Golem : Character
     public float Q_Time = 0;
     public float W_Time = 0;
     public float E_Time = 0;
-    
+
+    [Header("Skill Effect")]
+    //스킬 이펙트
+    public GameObject SkillQ;
+    public GameObject SkillW;
+    public GameObject SkillE;
+
     [Header("- Status")]
     //상태 변수들
     public bool dead = false;
@@ -144,29 +150,25 @@ public class Golem : Character
             skillDamage = 80 + (this.currentStatus.hp * 0.06f * (Extra_Attack == 0 ? 1 : 1+Extra_Attack)) + (5 * (this.currentStatus.power / 100.0f * (Extra_Attack == 0 ? 1 : 1+Extra_Attack)));
         else
             skillDamage = this.currentStatus.power;
-        Debug.Log(skillDamage);
+        skillq = false;
         RaycastHit hit;
         if (Physics.BoxCast(transform.position, GetComponent<CapsuleCollider>().bounds.size / 2, transform.forward, out hit, transform.rotation, this.currentStatus.attackRange))
         {
             if (hit.transform.tag == "Enemy")
             {
                 SendDamage(hit.transform.gameObject);
-                if (skillq)
-                {
-                    skillq = false;
-                    //둔화
-                    float enemyspeed = hit.transform.GetComponent<Character>().currentStatus.speed;
-                    hit.transform.GetComponent<Character>().currentStatus.speed *= 0.65f;
-                    float now = 0;
-                    while(now <= 2)
-                    {
-                        now += Time.deltaTime;
-                    }
-                    hit.transform.GetComponent<Character>().currentStatus.speed *= enemyspeed;
+                //둔화
+                //float enemyspeed = hit.transform.GetComponent<Character>().currentStatus.speed;
+                //hit.transform.GetComponent<Character>().currentStatus.speed *= 0.65f;
+                //float now = 0;
+                //while(now <= 2)
+                //{
+                //    now += Time.deltaTime;
+                //}
+                //hit.transform.GetComponent<Character>().currentStatus.speed *= enemyspeed;
 
-                    //둔화
-                    //hit.transform.GetComponent<Character>().Slow(2, 35); //시간, 퍼센트
-                }
+                //둔화
+                //hit.transform.GetComponent<Character>().Slow(2, 35); //시간, 퍼센트
             }
             else if (hit.transform.tag == "Minion")
             {
@@ -191,9 +193,20 @@ public class Golem : Character
         if (Q_Time > 0 || this.currentStatus.mp < 25)
             return;
 
+        animator.SetBool("Walk", false);
+
+        SkillQ.SetActive(false);
+        SkillQ.SetActive(true);
+
+        playerController.SetMoveable(0);
+        transform.LookAt(agent.pathEndPosition);
+
         skillq = true;
-        UseMP(25);
         AddPassiveCheck = false;
+
+        UseMP(25);
+        animator.SetTrigger("Skill_Q");
+        StartCoroutine("UseQ");
     }
 
     public override void Skill_W()
@@ -201,11 +214,16 @@ public class Golem : Character
         if (W_Time > 0 || this.currentStatus.mp < 30)
             return;
 
+        animator.SetBool("Walk", false);
+
+        SkillW.SetActive(false);
+        SkillW.SetActive(true);
+
         playerController.SetMoveable(0);
         transform.LookAt(agent.pathEndPosition);
 
         AddPassiveCheck = false;
-
+        
         UseMP(30);
         animator.SetTrigger("Skill_W");
         StartCoroutine("UseW");
@@ -221,8 +239,10 @@ public class Golem : Character
 
         AddPassiveCheck = false;
 
+        SkillE.SetActive(false);
+        SkillE.SetActive(true);
         UseMP(50);
-        animator.SetBool("Skill_E", true);
+        animator.SetTrigger("Skill_E");
         StartCoroutine("UseE");
     }
 
@@ -263,6 +283,22 @@ public class Golem : Character
         }
     }
 
+    IEnumerator UseQ()
+    {
+        Q_Time = 2;
+        agent.ResetPath();
+
+        while (Q_Time > 0)
+        {
+            if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("attack_1") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+            {
+                playerController.SetMoveable(1);
+            }
+            Q_Time -= Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
+
     IEnumerator UseW()
     {
         W_Time = 5;
@@ -270,9 +306,8 @@ public class Golem : Character
 
         while (W_Time > 0)
         {
-            if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("attack_2") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.94f)
+            if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("attack_2") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
             {
-                animator.SetBool("Walk", false);
                 playerController.SetMoveable(1);
             }
             W_Time -= Time.deltaTime;
@@ -286,17 +321,17 @@ public class Golem : Character
 
         Vector3 position = gameObject.transform.Find("Skill_E_Point").transform.position;
 
-        agent.speed = SPEED() * 1.5f;
+        agent.speed = SPEED() * 3f;
         agent.SetDestination(position);
         
         while (E_Time > 0)
         {
-            if (Vector3.Distance(position, gameObject.transform.position) <= 0.1f || (16 - E_Time) > (7 / agent.speed))
+            if (Vector3.Distance(position, gameObject.transform.position) == 0)
             {
-                if (Mathf.Approximately(agent.speed, (SPEED() * 1.5f)))
+                if (!Mathf.Approximately(agent.speed, SPEED()) && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("jump") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
                 {
                     Collider[] colls = Physics.OverlapSphere(transform.position, 2);
-                    foreach(Collider coll in colls)
+                    foreach (Collider coll in colls)
                     {
                         if (coll.gameObject.tag == "Enemy" && coll.gameObject != gameObject)
                         {
@@ -373,7 +408,7 @@ public class Golem : Character
         yield return new WaitForSeconds(respawnTime);
         animator.SetBool("Dead", false);
         dead = false;
-        this.currentStatus.hp = this.status.hp;
+        this.currentStatus = this.status;
         transform.position = new Vector3(0, 0, 0);
         transform.Find("Golem").gameObject.SetActive(true);
     }
@@ -429,6 +464,7 @@ public class Golem : Character
         Extra_MoveSpeed++;
         Stat_Point--;
         animator.SetFloat("Speed", SPEED());
+        agent.speed = SPEED();
     }
     //15퍼
     private void AddExtraAttackSpeed()
@@ -524,7 +560,6 @@ public class Golem : Character
     public float SPEED()
     {
         currentStatus.speed = status.speed + (Extra_MoveSpeed * this.status.speed * 0.05f);
-        agent.speed = currentStatus.speed;
         return currentStatus.speed;
     }
     #endregion
