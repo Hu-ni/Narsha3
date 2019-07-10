@@ -18,33 +18,33 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        target = transform.position;
         Moveable = true;
         character = GetComponent<Character>();
-        attackRange = character.currentStatus.attackRange;
+        attackRange = character.currStatus.attackRange;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
     private void Update()
     {
-        if (!Moveable)
-            return;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Input.GetMouseButtonDown(1))
+        GameObject temp = null;
+
+        if (Input.GetMouseButtonDown(1) && Moveable)
         {
             if (Physics.Raycast(ray, out hit))
             {
                 GetComponent<Character>().Move(true);
+                navMeshAgent.SetDestination(hit.point);
                 target = hit.point;
-                navMeshAgent.SetDestination(target);
-                if (hit.transform.gameObject.CompareTag("Enemy") || hit.transform.gameObject.CompareTag("Minion"))
+                if (hit.transform.gameObject != gameObject && (hit.transform.gameObject.CompareTag("Enemy") || hit.transform.gameObject.CompareTag("Minion")))
                 {
                     if (Vector3.Distance(transform.position, hit.point) <= attackRange)
                     {
-                        Attack();
+                        Attack(hit.transform.gameObject);
                     }
                     else
                     {
+                        temp = hit.transform.gameObject;
                         isAttack = true;
                     }
                 }
@@ -53,8 +53,8 @@ public class PlayerController : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target) < attackRange && isAttack)
         {
-            Attack();
-        }else if (Vector3.Distance(transform.position, target) <= navMeshAgent.stoppingDistance + 0.1f)
+            Attack(temp);
+        }else if (Vector3.Distance(transform.position, target) <= navMeshAgent.stoppingDistance)
         {
             GetComponent<Character>().Move(false);
         }
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         Inputs();
     }
 
-    private void Attack()
+    private void Attack(GameObject obj)
     {
         GetComponent<Character>().Attack();
         navMeshAgent.SetDestination(transform.position);
@@ -71,17 +71,10 @@ public class PlayerController : MonoBehaviour
         isAttack = false;
     }
 
-    public void SetMoveable(int mode)
+    public void SetMoveable(bool isMove)
     {
         navMeshAgent.destination = transform.position;
-        if (mode == 1)
-        {
-            Moveable = true;
-        }
-        else
-        {
-            Moveable = false;
-        }
+        Moveable = isMove;
     }
 
     private void Inputs()
