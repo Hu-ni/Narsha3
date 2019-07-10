@@ -17,9 +17,6 @@ public class UIManager : MonoBehaviour
     public const int SKILL_W = 2;
     public const int SKILL_E = 3;
 
-    // Canvas
-    private GameObject canvasSkill;
-
     // Skill UI
     private GameObject[] panelSkill = new GameObject[4];
     private Image[] imageBack = new Image[4]; // 쿨타임일 때 뒷 배경 검게
@@ -29,8 +26,6 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        canvasSkill = GameObject.Find("Canvas_Skill");
-
         panelSkill[0] = GameObject.Find("SkillP").gameObject;
         panelSkill[1] = GameObject.Find("SkillQ").gameObject;
         panelSkill[2] = GameObject.Find("SkillW").gameObject;
@@ -38,9 +33,16 @@ public class UIManager : MonoBehaviour
 
         for(int i=0; i<panelSkill.Length; i++)
         {
-            imageBack[i] = panelSkill[i].transform.Find("Image_Back").GetComponent<Image>();
-            imageCooldown[i] = panelSkill[i].transform.Find("Image_Cooldown").GetComponent<Image>();
-            textTime[i] = panelSkill[i].transform.Find("Text_Time").GetComponent<Text>();
+            GameObject back = panelSkill[i].transform.Find("Image_Back").gameObject;
+            back.SetActive(true);
+            GameObject cooldown = panelSkill[i].transform.Find("Image_Cooldown").gameObject;
+            cooldown.SetActive(true);
+            GameObject time = panelSkill[i].transform.Find("Text_Time").gameObject;
+            time.SetActive(true);
+
+            imageBack[i] = back.GetComponent<Image>();
+            imageCooldown[i] = cooldown.GetComponent<Image>();
+            textTime[i] = time.GetComponent<Text>();
 
             imageBack[i].enabled = false;
             imageCooldown[i].enabled = false;
@@ -99,7 +101,7 @@ public class UIManager : MonoBehaviour
     {
         
         if (Input.GetKeyDown(KeyCode.Q))
-            SkillUI_Cooldown(UIManager.SKILL_P, 2);
+            UIManager.instance.SkillUI_Cooldown(UIManager.SKILL_P, 2);
         else if (Input.GetKeyDown(KeyCode.W))
             SkillUI_Cooldown(UIManager.SKILL_Q, 3);
         else if (Input.GetKeyDown(KeyCode.E))
