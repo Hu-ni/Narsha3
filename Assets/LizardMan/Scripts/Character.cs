@@ -23,6 +23,8 @@ public abstract class Character : MonoBehaviour
     public bool attack = false;
     public bool stun = false;
 
+    public GameObject target;
+
     [Header("- Count")]
     //킬, 데스, 스텟 포인트
     public int Kill_Count = 0;
@@ -40,7 +42,7 @@ public abstract class Character : MonoBehaviour
     //경험치 필요량
     public int exp_need;
     
-    public abstract void Attack();
+    public abstract void Attack(GameObject target);
     public abstract void AttackDamage();
     public abstract void Move(bool isRunning);
     public abstract void Dead();

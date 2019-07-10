@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isAttack;
 
+    GameObject hited = null;
+
     private void Start()
     {
         Moveable = true;
@@ -27,7 +29,6 @@ public class PlayerController : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        GameObject temp = null;
 
         if (Input.GetMouseButtonDown(1) && Moveable)
         {
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        temp = hit.transform.gameObject;
+                        hited = hit.transform.gameObject;
                         isAttack = true;
                     }
                 }
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target) < attackRange && isAttack)
         {
-            Attack(temp);
+            Attack(hited);
         }else if (Vector3.Distance(transform.position, target) <= navMeshAgent.stoppingDistance)
         {
             GetComponent<Character>().Move(false);
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     private void Attack(GameObject obj)
     {
-        GetComponent<Character>().Attack();
+        GetComponent<Character>().Attack(obj);
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(target);
         GetComponent<Character>().Move(false);

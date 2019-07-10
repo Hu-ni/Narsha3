@@ -69,8 +69,9 @@ public class LizardMan : Character
         animator.SetBool("Walk", isRunning);
     }
 
-    public override void Attack()
+    public override void Attack(GameObject target)
     {
+        this.target = target;
         if (attack)
         {
             return;
@@ -103,7 +104,7 @@ public class LizardMan : Character
         RaycastHit hit;
         if(Physics.BoxCast(transform.position, GetComponent<CapsuleCollider>().bounds.size / 2, transform.forward, out hit, transform.rotation, this.currStatus.attackRange))
         {
-            if(hit.transform.tag == "Enemy")
+            if(hit.transform.tag == "Enemy" && hit.transform.gameObject == this.target)
             {
                 //SendDamage(hit.transform.gameObject);
                 hit.transform.gameObject.GetComponent<Character>().TakeDamage(this.currStatus.power);

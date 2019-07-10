@@ -77,8 +77,9 @@ public class Golem : Character
         animator.SetBool("Walk", isRunning);
     }
 
-    public override void Attack()
+    public override void Attack(GameObject target)
     {
+        this.target = target;
         if (attack)
         {
             return;
@@ -116,25 +117,15 @@ public class Golem : Character
         RaycastHit hit;
         if (Physics.BoxCast(transform.position, GetComponent<CapsuleCollider>().bounds.size / 2, transform.forward, out hit, transform.rotation, this.currStatus.attackRange))
         {
-            if (hit.transform.tag == "Enemy")
+            if (hit.transform.tag == "Enemy" && hit.transform.gameObject == this.target)
             {
                 hit.transform.gameObject.GetComponent<Character>().TakeDamage(damage);
-                //둔화
                 if (skillq)
                 {
                     skillq = false;
+                    //둔화
                     hit.transform.GetComponent<Character>().Slow(2, 35); //시간, 퍼센트
                 }
-                //float enemyspeed = hit.transform.GetComponent<Character>().currStatus.speed;
-                //hit.transform.GetComponent<Character>().currStatus.speed *= 0.65f;
-                //float now = 0;
-                //while(now <= 2)
-                //{
-                //    now += Time.deltaTime;
-                //}
-                //hit.transform.GetComponent<Character>().currStatus.speed *= enemyspeed;
-
-                //둔화
             }
             else if (hit.transform.tag == "Minion")
             {
