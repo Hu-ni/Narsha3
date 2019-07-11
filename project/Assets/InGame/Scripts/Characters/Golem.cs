@@ -63,6 +63,7 @@ public class Golem : Character
         StartCoroutine("ChargeHP");
         StartCoroutine("ChargeMP");
         StartCoroutine("Skill_P");
+
     }
 
     #region 이동, 공격
@@ -166,7 +167,7 @@ public class Golem : Character
 
         skillq = true;
         AddPassiveCheck = false;
-
+    
         UseMP(25);
         animator.SetTrigger("Skill_Q");
         StartCoroutine("UseQ");
@@ -284,15 +285,14 @@ public class Golem : Character
     {
         Vector3 position = gameObject.transform.Find("Skill_E_Point").transform.position;
 
-        this.currStatus.speed = 11;
+        this.currStatus.speed = 25;
         agent.SetDestination(position);
         
         while (!skillE.GetComponent<Active>().isActive)
         {
-            if (Vector3.Distance(position, gameObject.transform.position) <= agent.stoppingDistance)
-            {
-                if (Mathf.Approximately(this.currStatus.speed, 11) && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("jump") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.97f)
+                if (Mathf.Approximately(this.currStatus.speed, 25) && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("jump") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.97f)
                 {
+                agent.ResetPath();
                     float damage;
                     Collider[] colls = Physics.OverlapSphere(transform.position, 2);
                     foreach (Collider coll in colls)
@@ -310,7 +310,6 @@ public class Golem : Character
                     agent.ResetPath();
                     playerController.SetMoveable(true);
                 }
-            }
             
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -354,6 +353,8 @@ public class Golem : Character
         
         float DefenseDamage = damage * (0.9f - (Passive_ExtraDefense * 0.05f));
         this.currStatus.hp -= DefenseDamage;
+        Debug.Log("asd");
+        this.transform.Find("Canvas_HpMp(Clone)").GetComponent<CharacterUI>().setHP(this.currStatus.hp);
         if (this.currStatus.hp <= 0)
         {
             Dead();

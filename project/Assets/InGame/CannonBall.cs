@@ -24,7 +24,7 @@ public class CannonBall : MonoBehaviour
     {
         try
         {
-            if (target.gameObject.activeSelf == false)
+            if (target.gameObject.activeSelf == false||target==null)
             {
                 Destroy(gameObject);
             }

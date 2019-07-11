@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CoreScript : Character
 {
@@ -126,15 +127,12 @@ public class CoreScript : Character
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectRange);
     }
-
-
-
-
-
+    
 
     public void TakeDamage(int code)
     {
-        CoreHp -= 1;
+        CoreHp -= 5;
+        this.transform.Find("Canvas/Slider").GetComponent<Slider>().value = CoreHp;
         if (CoreHp <= 0)
         {
             CoreHp = 0;

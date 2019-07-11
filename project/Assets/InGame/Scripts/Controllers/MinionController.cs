@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MinionController :MonoBehaviour,UnitBasic
+public class MinionController : MonoBehaviour, UnitBasic
 {
 
     public float lookRadius;
@@ -12,8 +12,8 @@ public class MinionController :MonoBehaviour,UnitBasic
     private enum MinionState { idle, move, longattack, nearattack, die };
     private MinionState minionState = MinionState.idle;
 
-    private float attackNearRadius = 3f; //근거리 공격 거리
-    private float attackLongRadius = 4f; //원거리 공격 거리
+    private float attackNearRadius = 1.5f; //근거리 공격 거리
+    private float attackLongRadius = 3f; //원거리 공격 거리
     private float selectattackRadius; //미니언 종류에 따른 공격 거리 설정
 
     private int NearMinionAttack = 30; //근거리 미니언 공격력
@@ -34,7 +34,7 @@ public class MinionController :MonoBehaviour,UnitBasic
     private int ownExp;
     private int increaseRate;
     [SerializeField]
-   private int teamCode;
+    private int teamCode;
 
     public event Action<float> OnHealthPercentChanged = delegate { };
 
@@ -43,7 +43,7 @@ public class MinionController :MonoBehaviour,UnitBasic
     {
         animator = this.gameObject.GetComponentInChildren<Animator>();
         GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
-        for(int i = 0; i < towers.Length; i++)
+        for (int i = 0; i < towers.Length; i++)
         {
             if (towers[i].gameObject.GetComponent<UnitBasic>().GetTeamCode() != teamCode)
             {
@@ -97,15 +97,16 @@ public class MinionController :MonoBehaviour,UnitBasic
     {
         while (!isDie)
         {
-            float champdistance = Vector3.Distance(target.position, transform.position); //챔피언과 미니언 간의 거리 구하기
-         
-            Collider[] allobjects = Physics.OverlapSphere(transform.position, 10f);
+            //float champdistance = Vector3.Distance(target.position, transform.position); //챔피언과 미니언 간의 거리 구하기
+
+            Collider[] allobjects = Physics.OverlapSphere(transform.position, 99999f);
             List<Transform> targetList = new List<Transform>();
-            
-            float minDistance = 10f; //최소 거리 값 저장 변수
+
+            float minDistance = 99999f; //최소 거리 값 저장 변수
 
             for (int i = 0; i < allobjects.Length; i++)
             {
+
                 if (allobjects[i].name.Contains("Minion")) //미니언만 대소 비교를 함
                 {
 
@@ -118,7 +119,7 @@ public class MinionController :MonoBehaviour,UnitBasic
                     {
                         float distance = Vector3.Distance(transform.GetChild(0).GetChild(0).transform.position, allobjects[i].transform.GetChild(0).GetChild(0).position); //챔피언 - 미니언 간 거리 계산
 
-                        if(minDistance > distance && distance != 0)
+                        if (minDistance > distance && distance != 0)
                         {
                             minDistance = distance;
                             minionobj = allobjects[i].gameObject;
@@ -135,12 +136,12 @@ public class MinionController :MonoBehaviour,UnitBasic
 
                         targetList.Add(allobjects[i].gameObject.transform);
                     }
-                   
+
                 }
 
                 else if (allobjects[i].CompareTag("Tower"))
                 {
-                    if(allobjects[i].gameObject.GetComponent<UnitBasic>().GetTeamCode() != this.teamCode)
+                    if (allobjects[i].gameObject.GetComponent<UnitBasic>().GetTeamCode() != this.teamCode)
                     {
 
                         targetList.Add(allobjects[i].gameObject.transform);
@@ -148,41 +149,6 @@ public class MinionController :MonoBehaviour,UnitBasic
                 }
 
             }
-
-            if (targetList.Count > 0)
-            {
-                Transform MIN = targetList[0];
-                for (int k = 0; k < targetList.Count; k++)
-                {
-                    if (Vector3.Distance(MIN.transform.position, transform.position) > Vector3.Distance(targetList[k].transform.position, transform.position))
-                    {
-                        MIN = targetList[k];
-                    }
-                }
-
-                Debug.Log("MIN : " + MIN.name);
-                target = MIN;
-
-                float objDistance = Vector3.Distance(MIN.transform.position, transform.position);
-
-                if (objDistance <= selectattackRadius)
-                {
-                    agent.isStopped = true;
-                    if (selectattackRadius == attackLongRadius)
-                        minionState = MinionState.longattack;
-                    else
-                        minionState = MinionState.nearattack;
-                }
-                else
-                {
-                    agent.isStopped = false;
-                    agent.SetDestination(target.transform.position);
-                    minionState = MinionState.move;
-                }
-                setMinionRotation(target.gameObject);
-            }
-
-
 
             /*else if (champdistance <= minDistance && champdistance <= 5f) //챔피언 거리가 가깝다면
             {
@@ -199,12 +165,13 @@ public class MinionController :MonoBehaviour,UnitBasic
                         minionState = MinionState.nearattack;
                 }
             }*/
-
-            else if (minDistance <= selectattackRadius) //미니언 거리가 가깝다면
+            if (minDistance <= selectattackRadius) //미니언 거리가 가깝다면
             {
+                target = minionobj.transform;
                 agent.isStopped = false;
-                agent.SetDestination(minionobj.transform.position);
-                setMinionRotation(minionobj);
+                agent.SetDestination(target.transform.position);
+                setMinionRotation(target.gameObject);
+                minionState = MinionState.move;
 
                 if (selectattackRadius == attackLongRadius)
                 {
@@ -216,21 +183,75 @@ public class MinionController :MonoBehaviour,UnitBasic
                     agent.isStopped = true;
                     minionState = MinionState.nearattack;
                 }
-                else //아무 것도 아니라면 이동
+            }
+            else if (minDistance > selectattackRadius && minionobj != null) //아무 것도 아니라면 이동
+            {
+                target = minionobj.transform;
+                agent.isStopped = false;
+                agent.SetDestination(target.transform.position);
+                setMinionRotation(target.gameObject);
+                minionState = MinionState.move;
+            }
+            else if (targetList.Count > 0)
+            {
+                Transform MIN = targetList[0];
+                for (int k = 0; k < targetList.Count; k++)
+                {
+                    if (Vector3.Distance(MIN.transform.position, transform.position) > Vector3.Distance(targetList[k].transform.position, transform.position))
+                    {
+                        MIN = targetList[k];
+                    }
+                }
+
+                target = MIN;
+
+                float objDistance = Vector3.Distance(MIN.transform.position, transform.position);
+
+                if (objDistance <= selectattackRadius)
+                {
+                    if (selectattackRadius == attackLongRadius)
+                    {
+                        agent.isStopped = true;
+                        minionState = MinionState.longattack;
+                    }
+                    else
+                    {
+                        agent.isStopped = true;
+                        minionState = MinionState.nearattack;
+                    }
+                }
+                else
                 {
                     agent.isStopped = false;
-                    agent.SetDestination(minionobj.transform.position);
-                    setMinionRotation(minionobj);
-
+                    agent.SetDestination(target.transform.position);
                     minionState = MinionState.move;
                 }
+                setMinionRotation(target.gameObject);
+            }
+            else
+            {
+
+                GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
+                for (int i = 0; i < towers.Length; i++)
+                {
+                    if (towers[i].gameObject.GetComponent<UnitBasic>().GetTeamCode() != teamCode)
+                    {
+                        target = towers[i].transform;
+                        break;
+                    }
+                }
+                agent.isStopped = false;
+                agent.SetDestination(target.transform.position);
+                setMinionRotation(target.gameObject);
+                minionState = MinionState.move;
+
             }
             targetList.Clear();
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.01f);
         }
 
         yield return null;
- 
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -314,15 +335,22 @@ public class MinionController :MonoBehaviour,UnitBasic
         }
 
         yield return new WaitForSeconds(0.2f);
-
-        while (true)
+        Collider[] allobjects = Physics.OverlapSphere(transform.position, 99999f);
+        for (int i = 0; i < allobjects.Length; i++)
+        {
+            if (allobjects[i].name.Contains(gameObject.name.Substring(22)) && allobjects[i].name.Contains("Projectile"))
+            {
+                Destroy(allobjects[i].gameObject);
+            }
+        }
+        /*while (true)
         {
             GameObject obj = GameObject.Find(gameObject.name.Substring(22));
             if (obj)
                 Destroy(obj);
             else
                 break;
-        }
+        }*/
         Destroy(gameObject);
         yield return null;
     }
@@ -370,7 +398,7 @@ public class MinionController :MonoBehaviour,UnitBasic
         currentHP -= dmg;
         float currentHealthPercent = (float)currentHP / (float)minionHP;
         OnHealthPercentChanged(currentHealthPercent);
-        if (currentHP <=0)
+        if (currentHP <= 0)
         {
 
             int expNow = ownExp + (increaseRate * GameManager.instance.globalTime_Min);

@@ -34,7 +34,8 @@ public class PlayerManager : MonoBehaviour
                 GameObject genedPlayer=Instantiate(player, spawnPoint.transform.position, Quaternion.identity);
 
                 GameObject Model = Instantiate(playerModel,genedPlayer.transform);
-                
+
+
 
                 //Model.transform.parent = genedPlayer.transform;
                 //genedPlayer.GetComponent<Player>().character = (Character)genedPlayer.AddComponent<SwordMan>();

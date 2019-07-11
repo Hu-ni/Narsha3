@@ -95,7 +95,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.49}
-  m_Center: {x: 0, y: 0, z: -0.18}
+  m_Center: {x: 0, y: 0.47, z: -0.18}
 --- !u!114 &4329128301936944628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,7 +1315,7 @@ Transform:
   m_GameObject: {fileID: 4329128303707504806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.79, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_Children:
   - {fileID: 4329128303707720346}
   - {fileID: 4329128303707794776}
@@ -1859,10 +1859,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4329128303707723500}
     m_Modifications:
-    - target: {fileID: 3229988654364920035, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+    - target: {fileID: 3229988652977089772, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
         type: 3}
-      propertyPath: m_Name
-      value: LizardMan_Effect
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988652938358434, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988654445533082, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3229988654364920060, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
         type: 3}
@@ -1918,6 +1928,126 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988654364920035, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: m_Name
+      value: LizardMan_Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653119758678, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.45200002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653419246641, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.452
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653119758672, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653119758672, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653119758672, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.scalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653419246643, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653419246643, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653419246643, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.scalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653760247047, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653025137439, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: ShapeModule.m_Position.z
+      value: -0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653025137439, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653025137439, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653025137439, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: 1.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653025137439, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653025137439, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653535603115, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653760247041, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653760247041, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653760247041, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653760247041, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653760247041, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.minScalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988653760247041, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229988654294069907, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eba6184ccffdfc4c8d57eeb8692a9c7, type: 3}

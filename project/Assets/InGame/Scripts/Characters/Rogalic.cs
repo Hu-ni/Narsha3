@@ -11,6 +11,8 @@ public class Rogalic : Character
          StopCoroutine(ChargeMP());
      }
 
+    private PlayerController playerController;
+
      private static readonly String Walk = "walk";
      private static readonly String Attack2 = "attack_2";
      private static readonly String Attack1 = "attack_1";
@@ -34,6 +36,7 @@ public class Rogalic : Character
 
          EXP();
 
+        playerController = GetComponent<PlayerController>();
          animator = GetComponentInChildren<Animator>();
 
          StartCoroutine(ChargeHP());
@@ -46,14 +49,35 @@ public class Rogalic : Character
          animator.SetBool(Walk, isRunning);
      }
 
-     public override void Attack(GameObject target)
-     {
-         animator.SetTrigger(Attack2);
+    public override void Attack(GameObject target)
+    {
+        this.target = target;
+        if (attack)
+        {
+            return;
+        }
+        playerController.SetMoveable(false);
+        StartCoroutine("crtAttack");
+    }
 
-         this.target = target;
+    IEnumerator crtAttack()
+    {
+        animator.SetBool("Attack", true);
+        attack = true;
+        //idle이나 walk 애니메이션에서 공격 애니메이션으로 넘어올때까지 기다리기
+        while (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "idle" || animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "walk")
+        {
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
 
-        AttackDamage();
-     }
+        //공격 애니메이션 길이만큼 기다리기
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length / animator.GetFloat("AttackSpeed"));
+        playerController.SetMoveable(true);
+        animator.SetBool("Attack", false);
+
+        attack = false;
+        yield return null;
+    }
 
      public override void AttackDamage()
      {

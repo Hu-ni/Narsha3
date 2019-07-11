@@ -11,6 +11,7 @@ public abstract class Character : MonoBehaviour
     public int team;
     //캐릭터 원래 스탯(아무것도 적용되지 않은 스탯)
     public Status status;
+    [SerializeField]
     //사용될 스탯(현재 스탯)
     public Status currStatus;
     //애니메이터
@@ -132,7 +133,7 @@ public abstract class Character : MonoBehaviour
         {
             if (!dead && !Mathf.Approximately(this.currStatus.hp, this.status.hp))
             {
-                this.currStatus.hp += (4 * Extra_HP);
+                this.currStatus.hp += 4 + (4 * Extra_HP);
                 yield return new WaitForSeconds(1);
             }
             else
@@ -148,7 +149,7 @@ public abstract class Character : MonoBehaviour
         {
             if (!dead && !Mathf.Approximately(this.currStatus.mp, this.status.mp))
             {
-                this.currStatus.mp += (4 * Extra_Resource);
+                this.currStatus.mp += 4 + (4 * Extra_Resource);
                 yield return new WaitForSeconds(1);
             }
             else
@@ -192,6 +193,9 @@ public abstract class Character : MonoBehaviour
     {
         this.currStatus.level++;
         this.Stat_Point += 2;
+
+
+        this.transform.Find("Canvas_HpMp").GetComponent<CharacterUI>().setLevel(this.currStatus.level);
     }
 
     public virtual float POWER()

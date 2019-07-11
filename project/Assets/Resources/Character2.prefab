@@ -493,6 +493,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  status:
+    hp: 0
+    mp: 0
+    speed: 0
+    power: 0
+    attackspeed: 0
+    attackRange: 0
+    exp: 0
+    level: 0
+  currStatus:
+    hp: 0
+    mp: 0
+    speed: 0
+    power: 0
+    attackspeed: 0
+    attackRange: 0
+    exp: 0
+    level: 0
   animator: {fileID: 0}
   powerLevel: 0
   dead: 0
@@ -1393,6 +1411,66 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593746552991, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593784679997, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069594292632817, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593532490729, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593532490731, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593800052162, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593800052172, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593800052172, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593800052172, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593800052172, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593800052172, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: autoRandomSeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415069593800052172, guid: 5019aa08f6e01534a8351af4d0054a8c,
+        type: 3}
+      propertyPath: randomSeed
+      value: -906248497
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5019aa08f6e01534a8351af4d0054a8c, type: 3}

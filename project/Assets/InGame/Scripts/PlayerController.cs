@@ -22,14 +22,23 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        // 캐릭터 위에 HPMP UI 달기
+        GameObject UI_HpMp = Instantiate(Resources.Load("UI/Canvas_HpMp") as GameObject, this.transform);
+        UI_HpMp.transform.localPosition += new Vector3(0, -3f, 0);
+        UI_HpMp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        
         Moveable = true;
         character = GetComponent<Character>();
         attackRange = character.currStatus.attackRange;
         navMeshAgent = GetComponent<NavMeshAgent>();
-        ownTeam = GetComponent<Character>().team;
 
+        object data = this.photonView.InstantiationData;
+        GetComponent<Character>().team = (int)data;
+        ownTeam = GetComponent<Character>().team;
+        
         if (photonView.IsMine)
         {
+            UI_HpMp.GetComponent<CharacterUI>().setMine();
             Camera.main.GetComponent<Transform>().position = this.transform.position + new Vector3(0, 20, 0);
         }
     }

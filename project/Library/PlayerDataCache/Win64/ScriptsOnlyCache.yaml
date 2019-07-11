@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - Bullet
     - CameraCtrl
     - CannonBall
+    - CharacterUI
     - CoreScript
     - GameManager
     - Golem
@@ -14,6 +15,7 @@ ScriptsOnlyBuild:
     - HitBox
     - Knight
     - LizardMan
+    - LookAtCamera
     - MinionController
     - MinionManager
     - PhotonInit
@@ -34,8 +36,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -48,6 +52,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     - UnityEngine.UI.Toggle
   sceneClasses:
@@ -103,6 +108,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9404}
     - Class: 114
+      Script: {instanceID: 9438}
+    - Class: 114
       Script: {instanceID: 9440}
     - Class: 114
       Script: {instanceID: 9442}
@@ -132,6 +139,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 10822}
     - Class: 114
       Script: {instanceID: 10824}
+    - Class: 114
+      Script: {instanceID: 91332}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -224,6 +233,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9406}
     - Class: 114
+      Script: {instanceID: 9438}
+    - Class: 114
       Script: {instanceID: 9440}
     - Class: 114
       Script: {instanceID: 9442}
@@ -262,11 +273,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10824}
     - Class: 114
-      Script: {instanceID: 14944}
+      Script: {instanceID: 15584}
     - Class: 114
-      Script: {instanceID: 20708}
+      Script: {instanceID: 30328}
     - Class: 114
-      Script: {instanceID: 20766}
+      Script: {instanceID: 30334}
+    - Class: 114
+      Script: {instanceID: 80548}
+    - Class: 114
+      Script: {instanceID: 91332}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -913,7 +928,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: a637023272ebaa6c1eb93ac3df75814a
+      Hash: 931894289f2357e6a23eabad81c5201d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoreScript
@@ -991,7 +1006,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 7658b12bec8aec2eeec2619636c86cc1
+      Hash: 1efb9d050b4ee40f72e16b7e125f0ce3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Rogalic
@@ -1039,7 +1054,7 @@ ScriptsOnlyBuild:
     className: CSVReader
   - hash:
       serializedVersion: 2
-      Hash: 0441785678a6769651dab4d0368a885f
+      Hash: ad3f791c22fda3da912e7ee19a165159
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LizardMan
@@ -1225,7 +1240,7 @@ ScriptsOnlyBuild:
     className: PlayerManager
   - hash:
       serializedVersion: 2
-      Hash: 35a9693c388776aaf487636491a20f11
+      Hash: 4a0369cd366c126cd420018a4ac01f32
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
@@ -1321,7 +1336,7 @@ ScriptsOnlyBuild:
     className: PunTurnManager
   - hash:
       serializedVersion: 2
-      Hash: 96f31d306d7bc8a2f68f8e810b567a02
+      Hash: 9cf22363fc684643550a83cd50c9be1f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Golem
@@ -1345,7 +1360,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 4c7a13aba153c5faf4429e2fe3f1ce65
+      Hash: 568ab2538db6ff8327359749f0310763
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Knight
@@ -1499,9 +1514,21 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CharacterUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LookAtCamera
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainScene.unity
   - Assets/Scenes/SelectCharacterScene.unity
   - Assets/Scenes/GameScene.unity
-  playerPath: "D:/Other/Project/Unity/BridgeMercenaries/\uD504\uB85C\uADF8\uB7A8/BridgeMercenaries.exe"
+  playerPath: "D:/project/\uD504\uB85C\uADF8\uB7A8/BridgeMercenaries.exe"

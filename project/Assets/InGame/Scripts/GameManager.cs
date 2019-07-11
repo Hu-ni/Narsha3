@@ -36,8 +36,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         playerCharacters = PlayerCharacterInfo.playerCharacters;
 
         SpawnCharacter(myCharacter);
-
-        StartCoroutine(RuntimeTime());
     }
 
     private void SpawnCharacter(int charNum)
@@ -57,7 +55,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             spawnAgl = new Vector3(0, -90, 0);
         }
 
-        PhotonNetwork.Instantiate("Character" + charNum, spawnPos, Quaternion.Euler(spawnAgl));
+        PhotonNetwork.Instantiate("Character" + charNum, spawnPos, Quaternion.Euler(spawnAgl), 0, new object[] { myTeam });
     }
 
     IEnumerator RuntimeTime()

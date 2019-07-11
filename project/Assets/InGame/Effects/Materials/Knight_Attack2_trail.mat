@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Knight_Attack2_trail
-  m_Shader: {fileID: 4800000, guid: 5c6e56d9531f8b34a9c5b765ada8e308, type: 3}
+  m_Shader: {fileID: 4800000, guid: 01d838e1bb5222243998e308d8566842, type: 3}
   m_ShaderKeywords: _EMISSION _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0

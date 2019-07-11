@@ -9,6 +9,7 @@ public class AttackGenerator : MonoBehaviour
     private GameObject shooterobj;
     private GameObject minion; //미니언 Object
     private NavMeshAgent agent;
+    private string minionName;
 
     private float smooth = 10f;
 
@@ -26,6 +27,7 @@ public class AttackGenerator : MonoBehaviour
             shooterobj = Instantiate(shooter, minion.transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
             shooterobj.name = "Team2Projectile" + minion.name.Substring(22);
         }
+        minionName = shooterobj.name;
         StartCoroutine(moveShooter());
     }
 
@@ -33,8 +35,10 @@ public class AttackGenerator : MonoBehaviour
     {
         while (true)
         {
-            if (shooterobj == null || agent == null)
+            if (Time.deltaTime > 2f || shooterobj == null)
+            {
                 break;
+            }
 
             if (shooterobj.transform.position == agent.destination)
             {
@@ -47,7 +51,7 @@ public class AttackGenerator : MonoBehaviour
         }
 
         GameObject obj = GameObject.Find(shooterobj.name);
-        if(obj)
+        if (obj)
             Destroy(shooterobj.gameObject);
         yield return null;
     }

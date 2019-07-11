@@ -274,7 +274,7 @@ public class LizardMan : Character
             {
                 evasionTime += Time.deltaTime;
             }
-            if(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("jump") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+            if(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Contains("jump") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
             {
                 playerController.SetMoveable(true);
             }
@@ -329,6 +329,8 @@ public class LizardMan : Character
             return;
 
         this.currStatus.hp -= damage;
+        this.transform.Find("Canvas_HpMp(Clone)").GetComponent<CharacterUI>().setHP(this.currStatus.hp);
+
         if (this.currStatus.hp <= 0)
         {
             Dead();
